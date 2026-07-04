@@ -350,6 +350,9 @@ function formatFile(abs, root) {
       }
     }
 
+    // Convert lines starting with exactly one '#' followed by a space into '##'
+    code = code.replace(/^# (?!#)/gm, "## ");
+
     code = tidyLines(code);
 
     const lang = EXT_TO_LANG[ext] || "";
